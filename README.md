@@ -1,0 +1,2 @@
+# Scripts
+script kiddie
