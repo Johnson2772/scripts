@@ -35,6 +35,8 @@ if [ ! -f "$apps/$cerebro" ] ; then
     sudo dpkg -i $apps/$cerebro && ((progress++)) && echo "[*] [ $progress/$total ] Cerebro Installed"
     rm $apps/$cerebro
 else
-    sudo dpkg -i $apps/$cerebro && ((progress++)) && echo "[*] [ $progress/$total ] Cerebro Installed"
+    sudo dpkg -i $apps/$cerebro
+    (( progress++ ))
+    echo "[*] [ $progress/$total ] Cerebro Installed"
 	rm $apps/$cerebro
 fi
