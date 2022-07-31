@@ -16,7 +16,7 @@ fi
 # Installing it necessary software to begin with.
 echo "Hello World!"
 echo "[*] [$progress/$total] Installing necesary Software"
-apt install -y aptitude git
+apt install -y aptitude git x11-apps
 echo "[*] [$progress/$total] Updating Linux Mint System Software"
 apt update && apt upgrade -y
 echo "[*] [$progress/$total] Updating repository"
@@ -72,12 +72,15 @@ sudo apt install -y gitg && ((progress++)) && echo "[*] [ $progress/$total ] Git
 # Glances
 echo "[*] [ $progress/$total ] Installing glances"
 sudo apt install -y glances && ((progress++)) && echo "[*] [ $progress/$total ] glances Installed"
-# iotop
-echo "[*] [ $progress/$total ] Installing iotop"
-sudo apt install -y iotop && ((progress++)) && echo "[*] [ $progress/$total ] iotop Installed"
 # iftop
 echo "[*] [ $progress/$total ] Installing iftop"
 sudo apt install -y iftop && ((progress++)) && echo "[*] [ $progress/$total ] iftop Installed"
+# Inkscape
+echo "[*] [ $progress/$total ] Installing Inkscape"
+sudo apt install -y inkscape && ((progress++)) && echo "[*] [ $progress/$total ] Inkscape Installed"
+# iotop
+echo "[*] [ $progress/$total ] Installing iotop"
+sudo apt install -y iotop && ((progress++)) && echo "[*] [ $progress/$total ] iotop Installed"
 # LibreOffice Styles
 echo "[*] [ $progress/$total ] Installing LibreOffice Styles"
 sudo apt install -y libreoffice-style-sifr && ((progress++)) && echo "[*] [ $progress/$total ] LibreOffice Styles Installed"
@@ -119,3 +122,36 @@ sudo apt install -y wireshark && ((progress++)) && echo "[*] [ $progress/$total 
 # x2go
 echo "[*] [ $progress/$total ] Installing x2go"
 sudo apt install -y x2goclient && ((progress++)) && echo "[*] [ $progress/$total ] x2go Installed"
+
+# Installing Capitaine Icon Theme & Cursor
+icons=~/.icons
+capitaine=$icons/la-capitaine-icon-theme
+capitaineCursor=$icons/capitaine-cursors
+if [ ! -f "$capitaine" ] ; then
+    # Download Theme & Cursor
+    cd $icons || exit
+    git clone https://github.com/keeferrourke/la-capitaine-icon-theme.git la-capitaine-icon-theme
+    git clone https://github.com/keeferrourke/capitaine-cursors.git capitaine-cursors
+    # Installing Theme
+    cd $capitaine || exit
+    chmod u+x .configure
+    ./configure
+    # Installing Cursor
+    cd $capitaineCursor || exit
+    chmod u+x .build
+    ./build.sh
+    cd $apps || exit
+    ((progress++))
+    echo "[*] [$progress/$total] Capitaine Icon Theme and Cursor Installed"
+else
+    # Installing Theme
+    cd $capitaine || exit
+    chmod u+x .configure
+    # Installing Cursor
+    cd $capitaineCursor || exit
+    chmod u+x .build
+    ./build.sh
+    cd $apps || exit
+    ((progress++))
+    echo "[*] [$progress/$total] Capitaine Icon Theme Installed"
+fi
