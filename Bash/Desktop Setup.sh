@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Setting up Linux Mint Desktop
+
 # Installing Capitaine Icon Theme & Cursor
 icons=$HOME/.icons
 capitaine=$icons/la-capitaine-icon-theme
