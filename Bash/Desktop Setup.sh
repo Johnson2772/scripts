@@ -3,6 +3,9 @@
 # Setting up Linux Mint Desktop
 
 # Installing Capitaine Icon Theme & Cursor
+progress=1
+total=50
+apps=/tmp/apps
 icons=$HOME/.icons
 capitaine=$icons/la-capitaine-icon-theme
 capitaineCursor=$icons/capitaine-cursors
