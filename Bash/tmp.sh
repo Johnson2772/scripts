@@ -1,68 +1,77 @@
 #!/bin/bash
 
-sudo apt-get update
-sudo apt-get upgrade
+# Creating variables
 
-# Install Wine From Website
-# https://wiki.winehq.org/Ubuntu
+# Creating variables to install the following list of programs
+bash="aptitude at atop htop lynx ninvaders sl xfonts-terminus"
+devTools="anjuta bluefish eclipse emacs geany meld netbeans ruby samba vim virtualbox"
+emulators="atari800 desmume dolphin-emu dosbox gngb hatari mame mednafen nestopia pcsxr playonlinux scummvm stella visualboyadvance zsnes"
+extras="cheese copyq filezilla flameshot gparted grsync hardinfo k3b librecad libreoffice pl plank qalculate recordmydesktop sysinfo vinagre vino vlc xscreensaver xscreensaver-data-extra xscreensaver-gl-extra"
+games="0ad alien-arena assaultcube chessx enigma hedgewars lbreakout2 minetest neverball nexuiz nexuiz-server openarena openarena-081-maps openarena-081-players openarena-081-players-mature openarena-081-textures openarena-server sauerbraten steam:i386 wesnoth xmoto"
+gamesExtra="armagetronad billard-gl blobwars boswars circuslinux dreamchess extremetuxracer pingus pychess singularity snake4 supertux supertuxkart teeworlds warzone2100 xpenguins"
+graphicTools="dia gcolor3 gimp gpick inkscape krita scribus scribus-template"
+kids="childsplay gcompris laby tuxmath tuxtype"
+msg="cowsay figlet fortune fortunes toilet"
+pidgin="pidgin pidgin-data pidgin-encryption pidgin-festival pidgin-librvp pidgin-plugin-pack pidgin-skype pidgin-themes"
+systemExtras="arj exfat-fuse exfat-utils gdebi-core libavcodec-extra libdvd-pkg libdvdread4 lunzip lzip p7zip-rar rar sharutils ubuntu-restricted-addons ubuntu-restricted-extras unace"
+everything="$bash $devTools $emulators $extras $games $gamesExtra $graphicTools $kids $msg $pidgin $systemExtras"
 
-# Extras 
-sudo apt-get install cheese copyq pl filezilla flameshot gparted grsync hardinfo librecad libreoffice k3b plank qalculate recordmydesktop sysinfo vinagre vino vlc xscreensaver xscreensaver-gl-extra xscreensaver-data-extra 
+# Updating system
+apt-get update
+apt-get upgrade
 
-# System Extras
-sudo apt-get install exfat-fuse exfat-utils gdebi-core libavcodec-extra libdvdread4 libdvd-pkg ubuntu-restricted-addons ubuntu-restricted-extras unace p7zip-rar sharutils rar arj lunzip lzip
-		
-# Developer Tools
-sudo apt-get install bluefish anjuta eclipse emacs geany meld netbeans rar ruby samba vim virtualbox
+# Installing some useful PPA
+# Visit website for more information http://www.webupd8.org/
+add-apt-repository ppa:nilarimogard/webupd8
+apt-get update
 
-# Graphic Tools
-sudo apt-get install dia gimp gpick krita inkscape scribus scribus-template gcolor3
+# Installing  Bash & System Tools
+apt-get install "$bash"
 
-# Android Studio
-# https://developer.android.com/studio/install
-
-# Pidgin Messenger
-sudo apt-get install pidgin pidgin-data pidgin-encryption pidgin-encryption pidgin-librvp pidgin-festival pidgin-festival pidgin-plugin-pack pidgin-skype pidgin-themes
-
-# Gnome
-sudo apt-get install gnome-system-monitor gnome-pie
-
-# Bash & System Tools
-sudo apt-get install atop htop lynx ninvaders sl at aptitude xfonts-terminus vino.
-
-# Bash message
-sudo apt-get install figlet toilet cowsay fortune fortunes
-# Install new HAL9000 cow
-# Download
-# https://drive.google.com/drive/folders/0B_OCch-YoDkXYm5xSWVUbGF2Qm8
-sudo cp ~/Downloads/hal9000.cow /usr/share/cowsay/cows/
-
-# Automatic Shutdown
-# gedit /etc/crontab:
-# 00 21 * * * root shutdown -h now
-# Cron Format:
-# MM HH DD OO WW command
-# MM: Minute, 0-59
-# HH: 24-hour hour
-# DD: Day of month
-# OO: Month
-# WW: Day of Week (Sunday is 0, Monday is 1)
-# command: Self-explanatory
-
-# Games
-sudo apt-get install 0ad alien-arena assaultcube chessx enigma hedgewars lbreakout2 minetest neverball nexuiz nexuiz-server openarena openarena-081-maps openarena-081-players openarena-081-players-mature openarena-081-textures openarena-server sauerbraten steam:i386 wesnoth xmoto
-
-# Extra Games
-sudo apt-get install armagetronad billard-gl blobwars boswars circuslinux dreamchess extremetuxracer pingus pychess singularity snake4 supertux supertuxkart teeworlds warzone2100 xpenguins
+# Installing Developer Tools
+apt-get "$devTools"
 
 # Emulators
-sudo apt-get install atari800 desmume dolphin-emu dosbox gngb hatari mame mednafen nestopia pcsxr playonlinux scummvm stella visualboyadvance zsnes
+apt-get install "$emulators"
+
+# Installing Extras
+apt-get install "$extras"
+
+# Games
+apt-get install "$games"
+
+# Extra Games
+apt-get install "$gamesExtra"
 
 # Kids
-sudo apt-get install childsplay gcompris laby tuxmath tuxtype
+apt-get install "$kids"
 
-## PPA
-http://www.webupd8.org/p/ubuntu-ppas-by-webupd8.html
+# Installing Bash message
+apt-get install "$msg"
+
+# Installing Pidgin Messenger
+apt-get install "$pidgin"
+
+# Installing System Extras
+apt-get "$systemExtras"
+
+# Installing Graphic Tools
+apt-get install "$graphicTools"
 
 # Everything
-sudo apt-get install 
+apt-get install "$everything"
+
+# Install new HAL9000 cow
+# Download
+wget -q -O hal9000.cow https://github.com/Johnson2772/Scripts/blob/main/Bash/Preferences/hal9000.cow
+cp ~/Downloads/hal9000.cow /usr/share/cowsay/cows/
+
+# Installing Wine From Website
+# https://wiki.winehq.org/Ubuntu
+dpkg --add-architecture i386
+sudo wget -nc -O /usr/share/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+apt update
+apt install --install-recommends winehq-stable
+
+# Installing Android Studio
+# Visit website https://developer.android.com/studio/install

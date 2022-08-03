@@ -1,0 +1,12 @@
+# Automated Tasks
+# gedit /etc/crontab:
+# Example shutdown at 9:00PM everyday:
+# 00 21 * * * root shutdown -h now
+# Cron Format:
+# MM HH DD OO WW command
+# MM: Minute, 0-59
+# HH: 24-hour hour
+# DD: Day of month
+# OO: Month
+# WW: Day of Week (Sunday is 0, Monday is 1)
+# command: Self-explanatory
