@@ -1,4 +1,5 @@
-# Automated Tasks
+# This is how you automated tasks with Cron in Linux
+# Automated Tasks:
 # gedit /etc/crontab:
 # Example shutdown at 9:00PM everyday:
 # 00 21 * * * root shutdown -h now
