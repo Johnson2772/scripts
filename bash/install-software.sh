@@ -3,7 +3,7 @@
 # Creating variables
 
 # Creating variables to install the following list of programs
-bash="aptitude at atop htop lynx ninvaders sl xfonts-terminus"
+bash="at atop htop lynx ninvaders sl xfonts-terminus"
 devTools="anjuta bluefish eclipse emacs geany meld netbeans ruby samba vim virtualbox"
 emulators="atari800 desmume dolphin-emu dosbox gngb hatari mame mednafen nestopia pcsxr playonlinux scummvm stella visualboyadvance zsnes"
 extras="cheese copyq filezilla flameshot gparted grsync hardinfo k3b librecad libreoffice pl plank qalculate recordmydesktop sysinfo vinagre vino vlc xscreensaver xscreensaver-data-extra xscreensaver-gl-extra"
@@ -13,7 +13,7 @@ graphicTools="dia gcolor3 gimp gpick inkscape krita scribus scribus-template"
 kids="childsplay gcompris laby tuxmath tuxtype"
 msg="cowsay figlet fortune fortunes toilet"
 pidgin="pidgin pidgin-data pidgin-encryption pidgin-festival pidgin-librvp pidgin-plugin-pack pidgin-skype pidgin-themes"
-systemExtras="arj exfat-fuse exfat-utils gdebi-core libavcodec-extra libdvd-pkg libdvdread4 lunzip lzip p7zip-rar rar sharutils ubuntu-restricted-addons ubuntu-restricted-extras unace"
+systemExtras="aptitude arj exfat-fuse exfat-utils gdebi-core libavcodec-extra libdvd-pkg libdvdread4 lunzip lzip p7zip-rar rar sharutils ubuntu-restricted-addons ubuntu-restricted-extras unace"
 everything="$bash $devTools $emulators $extras $games $gamesExtra $graphicTools $kids $msg $pidgin $systemExtras"
 
 # Updating system
@@ -29,7 +29,7 @@ apt-get update
 apt-get install "$bash"
 
 # Installing Developer Tools
-apt-get "$devTools"
+apt-get install "$devTools"
 
 # Emulators
 apt-get install "$emulators"
@@ -63,7 +63,7 @@ apt-get install "$everything"
 
 # Install new HAL9000 cow
 # Download
-wget -q -O hal9000.cow https://github.com/Johnson2772/Scripts/blob/main/Bash/Preferences/hal9000.cow
+wget -q -O hal9000.cow bash/preferences/hal9000.cow
 cp ~/Downloads/hal9000.cow /usr/share/cowsay/cows/
 
 # Installing Wine From Website
