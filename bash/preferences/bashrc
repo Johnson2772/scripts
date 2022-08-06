@@ -118,7 +118,7 @@ terminal_welcome() {
   WHITE="\e[37m"
   STOP="\e[0m"
   # LOGIN SCREEN MESSAGE
-  # Earth's Flag
+  # EARTH'S FLAG
   printf "${YELLOW}"
   printf "================================================================================\n"
   printf "${BLUE}"
