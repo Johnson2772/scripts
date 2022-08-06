@@ -136,6 +136,7 @@ terminal_welcome() {
     todayDate=$(date +"%A, %d %B %Y, %I:%M:%S %p") #Date in nice format
     # Creating a random cow to salute
     randomCow=$(find /usr/share/cowsay/cows/ | shuf -n1) #Random Cow
+    randomNum=$((1+RANDOM%2)) # Random Number between 1-2
     
     # Login Screen Message
 
@@ -153,9 +154,15 @@ terminal_welcome() {
     echo -e "${yellow}""=================================================================================================="
     echo -e "${stop}"
     
-    # HAL9000 Cow && Random Cow Saying Fortune 
-    cowsay -W 80 -f HAL9000 Hello, Dave... Today is "$todayDate"
-    fortune | cowsay -W 100 -f "$randomCow"
+    # HAL9000 Cow && Random Cow Saying Fortune
+    case $randomNum in
+        1)
+            cowsay -W 80 -f HAL9000 Hello, Dave... Today is "$todayDate"
+            ;;
+        *)
+            fortune | cowsay -W 100 -f "$randomCow"
+            ;;
+    esac    
 }
  
 # Show terminal welcome message
