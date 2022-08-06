@@ -58,7 +58,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='\[\033[1;32m\]\u\[\033[1;37m\]@\[\033[1;36m\]\h\[\033[00m\]:\[\033[1;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\033[1;32m\]\u\[\033[1;37m\]@\[\033[1;36m\]\h\[\033[00m\]:\[\033[1;34m\]\w\[\033[00m\]\$ '  # My Little Tweak
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -115,37 +115,47 @@ if ! shopt -oq posix; then
 fi
 
 # Terminal welcome message
+# Creating a function
 terminal_welcome() {
-    black="\e[30m "
-    red="\e[31m "
-    green="\e[32m "
+
+    # Naming Color Palette
     yellow="\e[93m "
     blue="\e[34m "
-    purple="\e[35m "
-    cyan="\e[36m "
     white="\e[37m "
+    purple="\e[35m "
     stop="\e[0m "
-    # LOGIN SCREEN MESSAGE (EARTH'S FLAG)
+
+    # Unused colors
+    # black="\e[30m "
+    # red="\e[31m "
+    # green="\e[32m "
+    # cyan="\e[36m "
+
+    # Naming Variables
+    username=$(whoami)
+    todayDate=$(date +"%A, %d %B %Y, %I:%M:%S %p") #Date in nice format
+    # Creating a random cow to salute
+    randomCow=$(find /usr/share/cowsay/cows/ | shuf -n1) #Random Cow
+    
+    # Login Screen Message
+
+
+    # Earth'S Flag
     echo -e "$yellow""=================================================================================================="
     echo -e "${blue}""=================================================================================================="
     echo -e "${white}""=================================================================================================="
+    # Printing Username Bold & Purple
     echo -en "${purple}"
-    figlet -c Johnson
-    # Inverting Colors
+    figlet -c "${username}"
+    # Inverting Flag Colors
     echo -e "${white}""=================================================================================================="
     echo -e "${blue}""=================================================================================================="
     echo -e "${yellow}""=================================================================================================="
     echo -e "${stop}"
     
-    #Date in nice format
-    todayDate=$(date +"%A, %d %B %Y, %I:%M:%S %p")
-    echo Today is "$todayDate"
-
-    if [ -x /usr/games/cowsay ] && [ -x /usr/games/fortune ]; then
-        randomCow="ls /usr/share/cowsay/cows/ | shuf -n1"
-        fortune | cowsay -f "$randomCow"
-        cowsay -f HAL9000 Hello, Dave...
-    fi
+    # HAL9000 Cow && Random Cow Saying Fortune 
+    cowsay -W 80 -f HAL9000 Hello, Dave... Today is "$todayDate"
+    fortune | cowsay -W 100 -f "$randomCow"
 }
  
 # Show terminal welcome message
