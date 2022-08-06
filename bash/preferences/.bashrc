@@ -92,7 +92,7 @@ alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo -e terminal || echo -e error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -126,28 +126,25 @@ terminal_welcome() {
     white="\e[37m "
     stop="\e[0m "
     # LOGIN SCREEN MESSAGE (EARTH'S FLAG)
-    printf "%s" "${yellow}"
-    printf "====================================================================================================\n"
-    printf "%s\n" "${blue}"
-    printf "====================================================================================================\n" 
-    printf "%s\n" "${white}"
-    printf "====================================================================================================\n"
-    printf "%s\n" "${purple}"
+    echo -e "$yellow""=================================================================================================="
+    echo -e "${blue}""=================================================================================================="
+    echo -e "${white}""=================================================================================================="
+    echo -en "${purple}"
     figlet -c Johnson
     # Inverting Colors
-    printf "%s\n" "${white}"
-    printf "====================================================================================================\n"
-    printf "%s\n" "${blue}"
-    printf "====================================================================================================\n"
-    printf "%s\n" "${yellow}"
-    printf "====================================================================================================\n"
-    printf "%s\n" "${stop}"
+    echo -e "${white}""=================================================================================================="
+    echo -e "${blue}""=================================================================================================="
+    echo -e "${yellow}""=================================================================================================="
+    echo -e "${stop}"
     
-    date +"%A, %d %B %Y, %I:%M:%S %p" #Date in nice format
+    #Date in nice format
+    todayDate=$(date +"%A, %d %B %Y, %I:%M:%S %p")
+    echo Today is "$todayDate"
 
     if [ -x /usr/games/cowsay ] && [ -x /usr/games/fortune ]; then
-        fortune | cowsay -f `ls -1 /usr/share/cowsay/cows/ | sort -R | head -1` -n
-        # fortune | cowsay -f hal9000 Hello, Dave...
+        randomCow="ls /usr/share/cowsay/cows/ | shuf -n1"
+        fortune | cowsay -f "$randomCow"
+        cowsay -f HAL9000 Hello, Dave...
     fi
 }
  
