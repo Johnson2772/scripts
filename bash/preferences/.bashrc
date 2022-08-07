@@ -147,7 +147,7 @@ terminal_welcome() {
     echo -e "${white}""=================================================================================================="
     # Printing Username Bold & Purple
     echo -en "${purple}"
-    figlet -c "${username}"
+    figlet -c "${username}"@home
     # Inverting Flag Colors
     echo -e "${white}""=================================================================================================="
     echo -e "${blue}""=================================================================================================="
@@ -157,12 +157,13 @@ terminal_welcome() {
     # HAL9000 Cow && Random Cow Saying Fortune
     case $randomNum in
         1)
-            cowsay -W 80 -f HAL9000 Hello, Dave... Today is "$todayDate"
+            cowsay -W 90 -f HAL9000 Hello, Dave... Today is "$todayDate"
             ;;
         *)
-            fortune | cowsay -W 100 -f "$randomCow"
+            fortune | cowsay -W 90 -f "$randomCow"
             ;;
-    esac    
+    esac
+    echo -e "${stop}"
 }
  
 # Show terminal welcome message
