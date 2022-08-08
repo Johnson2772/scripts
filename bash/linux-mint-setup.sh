@@ -25,7 +25,10 @@ echo "[*] [$progress/$total] Installing missing dependencies"
 apt install -f -y
 echo "[*] [$progress/$total] Upgrading"
 # mintupgrade check
+apt install -y mintupgrade
+sudo mintupgrade
 apt-get dist-upgrade && apt update && apt upgrade && ((progress++))
+echo "[*] [$progress/$total] Finishing Upgrade"
 
 # Installs Cerebro from deb package
 echo "[*] [$progress/$total] Installing cerebro"

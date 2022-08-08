@@ -13,7 +13,7 @@ graphicTools="dia gcolor3 gimp gpick inkscape krita scribus scribus-template"
 kids="childsplay gcompris laby tuxmath tuxtype"
 msg="cowsay figlet fortune fortunes toilet"
 pidgin="pidgin pidgin-data pidgin-encryption pidgin-festival pidgin-librvp pidgin-plugin-pack pidgin-skype pidgin-themes"
-systemExtras="aptitude arj exfat-fuse exfat-utils gdebi-core libavcodec-extra libdvd-pkg libdvdread4 lunzip lzip p7zip-rar rar sharutils ubuntu-restricted-addons ubuntu-restricted-extras unace"
+systemExtras="aptitude arj gdebi-core libavcodec-extra libdvd-pkg libdvdread4 lunzip lzip p7zip-rar rar sharutils ubuntu-restricted-addons ubuntu-restricted-extras unace"
 everything="$bash $devTools $emulators $extras $games $gamesExtra $graphicTools $kids $msg $pidgin $systemExtras"
 
 # Updating system
