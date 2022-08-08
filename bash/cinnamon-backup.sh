@@ -14,4 +14,3 @@ dconf dump /org/cinnamon/ > cinnamon_desktop_backup
 dconf load /org/cinnamon/ < cinnamon_desktop_backup
 
 # After logging back into the desktop, everything should look like it did when you ran the backup.
-
