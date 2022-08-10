@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Organize Desklets
+Exec=gsettings set org.cinnamon enabled-desklets "['top@ryannerd:2:1280:660', 'googleCalendar@javahelps.com:6:1420:300', 'bbcwx@oak-wood.co.uk:8:1420:0', 'TimeAndDate@nightflame:21:980:380', 'photoframe@cinnamon.org:26:940:0', 'notes@schorschii:29:960:620']"
+Comment=Organize Desklets To Original Position
+Terminal=true
+Icon=desklets
+Type=Application
