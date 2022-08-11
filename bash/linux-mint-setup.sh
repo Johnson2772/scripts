@@ -125,3 +125,8 @@ sudo apt install -y wireshark && ((progress++)) && echo "[*] [ $progress/$total 
 # x2go
 echo "[*] [ $progress/$total ] Installing x2go"
 sudo apt install -y x2goclient && ((progress++)) && echo "[*] [ $progress/$total ] x2go Installed"
+
+# Install new HAL9000 cow
+wget -q -O HAL9000.cow https://github.com/Johnson2772/scripts/tree/main/bash/preferences/HAL9000/HAL9000.cow
+wget -q -O hal9000.cow https://github.com/Johnson2772/scripts/tree/main/bash/preferences/HAL9000/hal9000.cow
+cp -R ~/Downloads/*9000.cow /usr/share/cowsay/cows/

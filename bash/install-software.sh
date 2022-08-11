@@ -22,8 +22,8 @@ apt-get upgrade
 
 # Installing some useful PPA
 # Visit website for more information http://www.webupd8.org/
-add-apt-repository ppa:nilarimogard/webupd8
-apt-get update
+# add-apt-repository ppa:nilarimogard/webupd8
+# apt-get update
 
 # Installing  Bash & System Tools
 apt-get install "$bash"
@@ -61,17 +61,17 @@ apt-get install "$graphicTools"
 # Everything
 apt-get install "$everything"
 
-# Install new HAL9000 cow
-# Download
-wget -q -O hal9000.cow bash/preferences/hal9000.cow
-cp ~/Downloads/hal9000.cow /usr/share/cowsay/cows/
-
 # Installing Wine From Website
 # https://wiki.winehq.org/Ubuntu
 dpkg --add-architecture i386
 sudo wget -nc -O /usr/share/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
 apt update
 apt install --install-recommends winehq-stable
+
+# Installing Teamviewer
+wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+sudo apt -y install ./teamviewer_amd64.deb
+
 
 # Installing Android Studio
 # Visit website https://developer.android.com/studio/install
