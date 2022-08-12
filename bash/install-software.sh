@@ -1,8 +1,18 @@
 #!/bin/bash
 
 # Creating variables
+# Declaring some variables.
+apps="/tmp/apps"
+progress=1
+total=50
 
-# Creating variables to install the following list of programs
+# Creating directory if doesn't exist.
+cd "$(dirname "$0")" || exit 
+if [ ! -d "$apps" ]; then
+	mkdir "$apps"
+fi
+
+# Creating variables with the following list of programs to install
 bash="at atop htop lynx ninvaders sl xfonts-terminus"
 devTools="anjuta bluefish eclipse emacs geany meld netbeans ruby samba vim virtualbox"
 emulators="atari800 desmume dolphin-emu dosbox gngb hatari mame mednafen nestopia pcsxr playonlinux scummvm stella visualboyadvance zsnes"
@@ -36,6 +46,9 @@ else
 fi
 
 # Installing Software from repositories.
+# Installing it necessary software to begin with.
+echo "[*] [$progress/$total] Installing necesary Software"
+apt install -y aptitude git x11-apps
 # aircrack
 echo "[*] [ $progress/$total ] Installing aircrack-ng"
 apt install -y aircrack-ng && ((progress++)) && echo "[*] [ $progress/$total ] aircrack Installed"
