@@ -12,9 +12,10 @@ apt update
 echo "[*] [$progress/$total] Installing missing dependencies"
 apt install -f -y
 echo "[*] [$progress/$total] Upgrading"
+apt-get dist-upgrade && apt update && apt upgrade && ((progress++))
 # mintupgrade check
 apt install -y mintupgrade
-apt-get dist-upgrade && apt update && apt upgrade && mintupgrade ((progress++))
+sudo mintupgrade
 
 echo "[*] [$progress/$total] Finishing Upgrade"
 
