@@ -18,31 +18,17 @@ emulators="atari800 desmume dolphin-emu dosbox gngb hatari mame mednafen nestopi
 extras="audacity cheese copyq filezilla flameshot gparted grsync hardinfo k3b librecad libreoffice libreoffice-style-sifr pl plank qalculate software-properties-common recordmydesktop sysinfo vinagre vino vlc xscreensaver xscreensaver-data-extra xscreensaver-gl-extra"
 games="0ad alien-arena assaultcube chessx enigma hedgewars lbreakout2 minetest neverball nexuiz nexuiz-server openarena openarena-081-maps openarena-081-players openarena-081-players-mature openarena-081-textures openarena-server sauerbraten steam:i386 wesnoth xmoto"
 gamesExtra="armagetronad billard-gl blobwars boswars circuslinux dreamchess extremetuxracer pingus pychess singularity snake4 supertux supertuxkart teeworlds warzone2100 xpenguins"
-graphicTools="blender dia gcolor3 gimp gpick inkscape krita scribus scribus-template"
+graphicTools="blender darktable dia gcolor3 gimp gpick inkscape krita scribus scribus-template"
 kids="childsplay gcompris laby tuxmath tuxtype"
 msg="cowsay figlet fortune fortunes toilet"
 pidgin="pidgin pidgin-data pidgin-encryption pidgin-festival pidgin-librvp pidgin-plugin-pack pidgin-skype pidgin-themes"
-systemExtras="aptitude arj exfat-utils gdebi-core libavcodec-extra libdvd-pkg libdvdread4 lunzip lzip openvpn p7zip-rar psensor rar sharutils stacer ubuntu-restricted-addons ubuntu-restricted-extras unace x11-apps"
+systemExtras="aptitude arj cifs-utils exfat-utils gdebi-core libavcodec-extra libdvd-pkg libdvdread4 lunzip lzip openvpn p7zip-rar psensor rar remmina sharutils stacer ubuntu-restricted-addons ubuntu-restricted-extras unace x11-apps"
 everything="$bash $devTools $emulators $extras $games $gamesExtra $graphicTools $kids $msg $pidgin $systemExtras"
 
 # Updating system
 apt-get update
 apt-get upgrade
 
-# Installs Cerebro from deb package
-echo "[*] [$progress/$total] Installing cerebro"
-cerebro="cerebro.deb"
-if [ ! -f "$apps/$cerebro" ] ; then
-    wget -q -O $apps/$cerebro https://github.com/cerebroapp/cerebro/releases/download/v0.5.0/cerebro_0.5.0_amd64.deb
-    dpkg -i $apps/$cerebro
-    ((progress++))
-    echo "[*] [$progress/$total] Cerebro Installed"
-else
-    dpkg -i $apps/$cerebro
-    ((progress++))
-    echo "[*] [$progress/$total] Cerebro Installed"
-	rm $apps/$cerebro
-fi
 
 # Installing Software from repositories.
 
@@ -95,36 +81,20 @@ echo "[*] [$progress/$total] Installing Everything"
 apt-get install "$everything" && ((progress++)) && echo "[*] [$progress/$total] Everything Installed"
 
 
-
-
-
-
-
-
-
-
-
-
-
-# CIFS
-echo "[*] [ $progress/$total ] Installing CIFS Utils"
-sudo apt install -y cifs-utils && ((progress++)) && echo "[*] [ $progress/$total ] CIFS Installed"
-# Darktable
-echo "[*] [ $progress/$total ] Installing darktable"
-sudo add-apt-repository -y ppa:pmjdebruijn/darktable-release
-sudo apt update
-sudo apt install -y darktable && ((progress++)) && echo "[*] [ $progress/$total ] darktable Installed"
-# Remmina
-echo "[*] [ $progress/$total ] Installing remmina"
-sudo apt install -y remmina && ((progress++)) && echo "[*] [ $progress/$total ] Remmina Installed"
-
-
-
-
-# Installing some useful PPA
-# Visit website for more information http://www.webupd8.org/
-# add-apt-repository ppa:nilarimogard/webupd8
-# apt-get update
+# Installs Cerebro from deb package 
+echo "[*] [$progress/$total] Installing cerebro"
+cerebro="cerebro.deb"
+if [ ! -f "$apps/$cerebro" ] ; then
+    wget -q -O $apps/$cerebro https://github.com/cerebroapp/cerebro/releases/download/v0.5.0/cerebro_0.5.0_amd64.deb
+    dpkg -i $apps/$cerebro
+    ((progress++))
+    echo "[*] [$progress/$total] Cerebro Installed"
+else
+    dpkg -i $apps/$cerebro
+    ((progress++))
+    echo "[*] [$progress/$total] Cerebro Installed"
+	rm $apps/$cerebro
+fi
 
 
 # Installing Wine From Website
@@ -138,6 +108,11 @@ apt install --install-recommends winehq-stable
 wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 sudo apt -y install ./teamviewer_amd64.deb
 
-
 # Installing Android Studio
 # Visit website https://developer.android.com/studio/install
+flatpak install com.google.AndroidStudio
+
+# Installing some useful PPA
+# Visit website for more information http://www.webupd8.org/
+# add-apt-repository ppa:nilarimogard/webupd8
+# apt-get update
