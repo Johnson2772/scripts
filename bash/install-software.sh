@@ -12,7 +12,7 @@ if [ ! -d "$apps" ]; then
 fi
 
 # Creating variables with the following list of programs to install
-bash="at atop htop iotop iftop lynx ninvaders sl tmux xfonts-terminus"
+bash="at atop htop iotop iftop glances lm-sensors lynx ninvaders sl tmux xfonts-terminus"
 devTools="aircrack-ng anjuta bluefish eclipse emacs geany git gitg meld netbeans nmap npm ruby samba vim virtualbox wireshark"
 emulators="atari800 desmume dolphin-emu dosbox gngb hatari mame mednafen nestopia pcsxr playonlinux scummvm stella visualboyadvance zsnes"
 extras="audacity cheese copyq filezilla flameshot gparted grsync hardinfo k3b librecad libreoffice libreoffice-style-sifr pl plank qalculate software-properties-common recordmydesktop sysinfo vinagre vino vlc xscreensaver xscreensaver-data-extra xscreensaver-gl-extra"
@@ -22,7 +22,7 @@ graphicTools="blender dia gcolor3 gimp gpick inkscape krita scribus scribus-temp
 kids="childsplay gcompris laby tuxmath tuxtype"
 msg="cowsay figlet fortune fortunes toilet"
 pidgin="pidgin pidgin-data pidgin-encryption pidgin-festival pidgin-librvp pidgin-plugin-pack pidgin-skype pidgin-themes"
-systemExtras="aptitude arj exfat-utils gdebi-core libavcodec-extra libdvd-pkg libdvdread4 lunzip lzip openvpn p7zip-rar rar sharutils stacer ubuntu-restricted-addons ubuntu-restricted-extras unace x11-apps"
+systemExtras="aptitude arj exfat-utils gdebi-core libavcodec-extra libdvd-pkg libdvdread4 lunzip lzip openvpn p7zip-rar psensor rar sharutils stacer ubuntu-restricted-addons ubuntu-restricted-extras unace x11-apps"
 everything="$bash $devTools $emulators $extras $games $gamesExtra $graphicTools $kids $msg $pidgin $systemExtras"
 
 # Updating system
@@ -114,18 +114,9 @@ echo "[*] [ $progress/$total ] Installing darktable"
 sudo add-apt-repository -y ppa:pmjdebruijn/darktable-release
 sudo apt update
 sudo apt install -y darktable && ((progress++)) && echo "[*] [ $progress/$total ] darktable Installed"
-# Glances
-echo "[*] [ $progress/$total ] Installing glances"
-sudo apt install -y glances && ((progress++)) && echo "[*] [ $progress/$total ] glances Installed"
-# lm-sensors
-echo "[*] [ $progress/$total ] Installing lm-sensors"
-sudo apt install -y lm-sensors && ((progress++)) && echo "[*] [ $progress/$total ] lm-sensors Installed"
 # Remmina
 echo "[*] [ $progress/$total ] Installing remmina"
 sudo apt install -y remmina && ((progress++)) && echo "[*] [ $progress/$total ] Remmina Installed"
-# x2go
-echo "[*] [ $progress/$total ] Installing x2go"
-sudo apt install -y x2goclient && ((progress++)) && echo "[*] [ $progress/$total ] x2go Installed"
 
 
 
