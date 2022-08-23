@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Organize Desklets
-Exec=gsettings set org.cinnamon enabled-desklets "['top@ryannerd:2:1240:680', 'googleCalendar@javahelps.com:6:800:420', 'TimeAndDate@nightflame:21:1340:0', 'photoframe@cinnamon.org:26:740:20', 'diskspace@schorschii:36:1600:460', 'diskspace@schorschii:37:1760:460', 'system-monitor-graph@rcassani:39:1240:180', 'system-monitor-graph@rcassani:41:1580:180', 'system-monitor-graph@rcassani:42:1240:320', 'system-monitor-graph@rcassani:43:1580:320', 'cpuload@kimse:46:1240:460', 'notes@schorschii:48:340:20', 'diskspace@schorschii:53:1420:460']"
+Exec= gsettings set org.cinnamon enabled-desklets "['top@ryannerd:2:1225:650', 'googleCalendar@javahelps.com:6:300:50', 'TimeAndDate@nightflame:21:1375:50', 'photoframe@cinnamon.org:26:725:50', 'diskspace@schorschii:36:1575:475', 'diskspace@schorschii:37:1750:475', 'system-monitor-graph@rcassani:39:1225:225', 'system-monitor-graph@rcassani:41:1575:225', 'system-monitor-graph@rcassani:42:1225:350', 'system-monitor-graph@rcassani:43:1575:350', 'cpuload@kimse:46:1225:475', 'notes@schorschii:48:725:475', 'diskspace@schorschii:53:1400:475']"
 Comment=Organize Desklets To Original Position
 Terminal=true
 Icon=desklets
